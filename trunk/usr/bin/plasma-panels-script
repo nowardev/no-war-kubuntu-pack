@@ -1,0 +1,122 @@
+#!/bin/bash -x
+
+storefilename="plasma-panels-backup"
+storefilefolder="$HOME"
+pathtemplate="/usr/share/kde4/apps/plasma/layout-templates/"
+i=0
+easy="destkop"
+plasmaarray[0]="plasma-desktop"
+plasmaarray[1]="plasma-netbook"
+plasmaarray[2]="plasma-mobile"
+#plasmaarray[0]="plasma-multimedia"
+
+while read line ; 
+do 
+if [[ "$easy" == "destkop" && "$line" == "default Panel" ]]; then
+a[i]="desktop $line"
+easy=netbook
+elif [[ "$easy" == "netbook" && "$line" == "default Panel" ]]; then  
+a[i]="netbook $line"
+else
+a[i]="$line"
+fi
+echo ${a[i]}
+done<$(ls /usr/share/kde4/apps/plasma/layout-templates/ | awk -F'.' '/Panel/{ gsub(/Panel/," Panel");print $4}')
+#get the list of template use . like separtator , find for Panel and replace Panel with space+Panel print the 4th 
+
+functioninteractivelauncher(){
+
+qdbus org.kde.plasma-desktop /MainApplication local.PlasmaApp.loadScriptInInteractiveConsole "$1"
+
+}
+
+functionautomatic(){
+echo
+}
+
+functionstorepanels(){
+
+
+for stored $storefilefolder/$storefilename* ; do 
+a=$(echo "$stored" | awk -F'-' '{gsub(/.tar/,"");print $2}')
+done
+
+if [[ "$a" == "" ]] ;then
+a=0
+fi
+
+
+
+if [[ ! -e "$storefilefolder/$storefilename"$a.tar ]]; then 
+kdialog --msgbox "Hi this is the fist time plasma panel script is running, so i will do a backup of your panels
+backup file here $storefilefolder/$storefilename.tar" 
+for file in ~/.kde/share/config/plasma* ; do tar --append  $file  --file="$storefilefolder/$storefilename"-$a.tar ; done
+fi 
+}
+
+funcitoninteractive (){
+case $answer in 
+
+Nowardev)
+functioninteractivelauncher $1/usr/share/kde4/apps/plasma/layout-templates/org.kde.plasma-desktop.nowardevPanel/contents/layout.js
+
+;;
+
+Kde)
+
+functioninteractivelauncher $1/usr/share/kde4/apps/plasma/layout-templates/org.kde.plasma-desktop.defaultPanel/contents/layout.js
+
+;;
+
+Mac)
+functioninteractivelauncher $1/usr/share/kde4/apps/plasma/layout-templates/org.kde.plasma-desktop.macstylePanel/contents/layout.js
+
+;;
+
+Unity)
+functioninteractivelauncher $1/usr/share/kde4/apps/plasma/layout-templates/org.kde.plasma-desktop.unityPanel/contents/layout.js
+
+;;
+
+
+Gnome2)
+functioninteractivelauncher $1/usr/share/kde4/apps/plasma/layout-templates/org.kde.plasma-desktop.gnome2Panel/contents/layout.js
+
+;;
+
+ChromeOS)
+functioninteractivelauncher $1/usr/share/kde4/apps/plasma/layout-templates/org.kde.plasma-desktop.chromeosPanel/contents/layout.js
+
+;;
+
+"STORE MY PANELS")
+
+functionstorepanels
+;;
+
+
+"Restore my panels and Reload plasma")
+
+
+for cica in "${plasmaarray[@]}"; do 
+
+ps -ef | grep "/usr/bin/plasma-desktop" 
+ps -ef | grep "plasma-netbook" 
+ps -ef | grep "plasma-mobile" 
+
+;;
+
+*)
+exit
+;;
+esac
+}
+
+
+
+#mode=`kdialog --menu "Mode"  edit "Edit and lauch"  launch Launch`
+
+answer=`kdialog --combobox "Choose The Panels Layout:"  "STORE MY PANELS" Kde Mac Unity Gnome2 Nowardev  --default "Nowardev" --title "Plasma Panel Layout"`
+
+functionstorepanels
+funcitoninteractive
