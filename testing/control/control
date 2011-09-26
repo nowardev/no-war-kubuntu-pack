@@ -1,0 +1,12 @@
+Package: kubuntu-low-fat-settings
+Version: 11.10ubuntu1
+Architecture: all
+Maintainer: Kubuntu Developers <kubuntu-devel@lists.ubuntu.com>
+Installed-Size: 100
+Section: kde
+Priority: optional
+Description: Default settings for Kubuntu Low Fat setups
+ This package contains the settings used by Kubuntu low fat setups.
+ Compared to the regular default settings, this package decativates a lot of
+ non-essential features to gain additional system resources.
+Original-Maintainer: Harald Sitter <apachelogger@ubuntu.com>
