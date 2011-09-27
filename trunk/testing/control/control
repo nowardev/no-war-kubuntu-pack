@@ -1,12 +1,14 @@
-Package: kubuntu-low-fat-settings
+Package: nowar-kubuntu-pack
 Version: 11.10ubuntu1
 Architecture: all
-Maintainer: Kubuntu Developers <kubuntu-devel@lists.ubuntu.com>
+Maintainer: nowardev <nowardev@gmail.com>
 Installed-Size: 100
+Homepage: http://www.nowardev.wordpress.com
 Section: kde
 Priority: optional
-Description: Default settings for Kubuntu Low Fat setups
- This package contains the settings used by Kubuntu low fat setups.
- Compared to the regular default settings, this package decativates a lot of
- non-essential features to gain additional system resources.
-Original-Maintainer: Harald Sitter <apachelogger@ubuntu.com>
+Depends: kdebase-runtime, libc6 (>= 2.3.6-6~), libgcc1 (>= 1:4.1.1), libgstreamer0.10-0 (>= 0.10.0), libkcmutils4 (>= 4:4.4.95), libkdecore5 (>= 4:4.4.0), libkdeui5 (>= 4:4.3.4), libkemoticons4 (>= 4:4.4.95), libkfile4 (>= 4:4.3.4), libkidletime4 (>= 4:4.4.95), libkio5 (>= 4:4.3.4), libkipi8 (>= 4:4.5.80), libkprintutils4 (>= 4:4.4.95), libkutils4 (>= 4:4.6.2), libnepomuk4 (>= 4:4.3.4), libphonon4 (>= 4:4.7.0really4.4.4), libqt4-dbus (>= 4:4.5.3), libqt4-network (>= 4:4.5.3), libqt4-svg (>= 4:4.5.3), libqt4-xml (>= 4:4.5.3), libqtcore4 (>= 4:4.7.0~beta1), libqtglib-2.0-0 (>= 0.10.1), libqtgstreamer-0.10-0 (>= 0.10.1), libqtgstreamerui-0.10-0 (>= 0.10.1), libqtgui4 (>= 4:4.7.0~beta1), libsolid4 (>= 4:4.3.4), libstdc++6 (>= 4.1.1), phonon, vlc, gstreamer0.10-plugins-base, gstreamer0.10-plugins-good, gstreamer0.10-x
+Recommends: vlc
+Description: Tool to take pictures and videos from your webcam
+ Kamoso is a utility that does the very simple actions a webcam offers,
+ like taking pictures or recording videos and adds some extra features that will
+ make the webcam usage both funnier and more useful.
