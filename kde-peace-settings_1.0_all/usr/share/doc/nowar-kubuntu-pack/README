@@ -1,0 +1,51 @@
+Please this is not stable 
+this is not done
+it's just a preview 
+
+so don't install 
+
+nowardev
+
+Installation 
+
+MAKE SURE YOU HAVE ALL WIDGET 
+
+sudo apt-get install plasma-widget-*
+
+then  go in the folder where y have unpackaged this file and do :
+
+-----------------------
+general distro with kde  as root 
+
+./install 
+
+kbuildsycoca4 
+
+--------------------
+debian kubuntu etc
+
+sudo ./install 
+kbuildsycoca4 
+-----------------------
+
+tested on kubuntu 11.04
+
+USE 
+
+note:
+When one layout is selected "desktop console" will load it BUT  you need to 
+click on EXECUTE!!!!!
+
+
+
+after you have installed go on settings and you will find 
+plasma panel scripts
+
+you can choose 
+nowardev panel layout 
+gnome2 panels 
+mac panels 
+unity panel 
+
+
+of couse this is a preview and i have to do some stuff...!!!! 
