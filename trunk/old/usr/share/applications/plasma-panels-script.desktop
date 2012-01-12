@@ -1,0 +1,21 @@
+[Desktop Entry]
+Categories=Qt;KDE;Settings;
+Encoding=UTF-8
+GenericName[en_US]=Plasma Panels Scripts
+GenericName=Plasma Panels Scripts
+Name[en_US]=Plasma Panels Scripts
+Name=Plasma Panels Scripts
+Comment[en_US]=Choose Panels Layout
+Comment=Choose Panels Layout
+Icon=plasma
+MimeType=
+Exec=plasma-panels-script
+Path=
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
