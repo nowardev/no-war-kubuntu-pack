@@ -1,0 +1,45 @@
+#!/bin/bash 
+# 
+# 
+#
+#license gpl 
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#any later version.
+
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see <http://www.gnu.org/licenses/>
+#NowardevTeam 2011
+
+if [ "$(id -u)" = 0 ]; then 
+	echo "you have the power lol" 
+	echo "installing..."
+else 
+	echo "YOU ARE NOT ROOT TO INSTALL  YOU MUST BE ROOT. "
+	echo "For (k)ubuntu use 
+
+sudo ./install"
+	exit 0
+fi
+
+echo "cp $PWD/usr/bin/plasma-panels-script /usr/bin/plasma-panels-script"
+cp $PWD/usr/bin/plasma-panels-script /usr/bin/plasma-panels-script
+chmod +x /usr/bin/plasma-panels-script
+
+echo "cp $PWD/usr/share/applications/plasma-panels-script.desktop /usr/share/applications/plasma-panels-script.desktop"
+cp $PWD/usr/share/applications/plasma-panels-script.desktop /usr/share/applications/plasma-panels-script.desktop
+
+
+echo "cp -a $PWD/usr/share/kde4/apps/plasma/layout-templates/* /usr/share/kde4/apps/plasma/layout-templates/"
+cp -a  $PWD/usr/share/kde4/apps/plasma/layout-templates/* /usr/share/kde4/apps/plasma/layout-templates/ 
+
+ 
+ 
+echo script has done!
+echo search on the settings session on kde menu
